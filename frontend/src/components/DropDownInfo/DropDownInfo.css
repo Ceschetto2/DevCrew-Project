@@ -1,0 +1,26 @@
+.question-container{
+    display: flex;
+    width: 95%;
+    background-color: #353535;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    justify-content: flex-start; /* Mantiene il contenuto a sinistra */
+    align-items: flex-start; /* Allinea verticalmente al centro */
+    padding-left: 10px; /* Aggiunge un po' di spazio dal bordo sinistro */
+    flex-direction: column;
+    height: fit-content;
+    user-select: none;
+
+}
+
+.testo-domanda{
+    margin: 12px;
+    width: inherit;
+    font-size: 16px;
+    text-align: left; /* Allinea il testo a sinistra */
+}
+
+.question-container .expanded{
+    background-color: rgb(0, 91, 170);
+    height: fit-content;
+}

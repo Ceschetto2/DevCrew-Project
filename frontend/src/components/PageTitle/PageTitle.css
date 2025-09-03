@@ -1,0 +1,19 @@
+.container-page-title {
+  margin: 16px auto; /* Margine automatico per centrare il contenitore */
+  width: 95%; 
+  display: flex; /* Abilita il layout flessibile */
+  flex-direction: row; /* Imposta la direzione del layout su colonna */
+  justify-content: space-between; /* Allinea gli elementi all'inizio del contenitore */
+  
+
+}
+
+.titolo {
+  text-decoration: underline; /* Sottolinea il titolo */
+  text-align: center;
+  font-family: Abel; /* Font del titolo */
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

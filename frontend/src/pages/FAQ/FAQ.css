@@ -1,0 +1,14 @@
+.faq-container {
+    display: flex;             /* Abilita il layout flex */
+    flex-direction: column;    /* Dispone gli elementi verticalmente */
+    justify-content: flex-start; /* Allinea in alto (è anche il default) */
+    align-items: center;       /* Centra orizzontalmente se vuoi (in alternativa: flex-start) */
+    margin: 10px;              
+    padding: 0;                /* Facoltativo, rimuove padding di default */
+    background-color:#0B0B22;
+    width: 1200px;
+    border-radius: 10px;
+
+  }
+
+  

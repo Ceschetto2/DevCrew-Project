@@ -1,0 +1,48 @@
+.activity-container{
+  display: flex; /* Attiva Flexbox */
+  flex-direction: column;
+  align-items: flex-start; /* Allinea gli elementi (immagine e testo) in alto */
+  gap: 16px;
+  margin: 20px;
+  width:95%;
+  background: #353535;
+  border-radius: 10px;
+  overflow: hidden; 
+  padding: 10px;
+}
+
+.event-title-box{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px;
+  
+}
+.event-title{
+  margin: 15px 0px;
+  
+}
+.buttons-container{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 30px;
+}
+.event-description{
+  background-color:dimgray;
+  width: inherit;
+  border-radius: 12px;
+  border-width: 6px;
+  border-color: aliceblue;
+    margin: 0 auto;        /* centra orizzontalmente */
+  border-style:double;
+  max-height: 300px;
+  overflow-y: auto;      /* scroll verticale se il testo eccede */
+  overflow-x: hidden;    /* nascondi lo scroll orizzontale */
+  word-wrap: break-word; /* forza a capo parole troppo lunghe */
+  white-space: normal;   /* testo va a capo automaticamente */
+}

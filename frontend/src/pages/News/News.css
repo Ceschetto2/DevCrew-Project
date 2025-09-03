@@ -1,0 +1,172 @@
+.notizie {
+  display: flex;
+  /* Abilita il layout flex */
+  flex-direction: column;
+  /* Dispone gli elementi verticalmente */
+  justify-content: flex-start;
+  /* Allinea in alto (è anche il default) */
+  align-items: center;
+  /* Centra orizzontalmente se vuoi (in alternativa: flex-start) */
+  margin: 10px;
+  padding: 0;
+  /* Facoltativo, rimuove padding di default */
+  background-color: #0B0B22;
+  width: 1200px;
+  border-radius: 10px;
+}
+
+/* Titolo in alto */
+.titolo {
+  height: 100px;
+
+}
+
+
+/* Container principale */
+.container-news {
+  display: flex;
+  /* Attiva Flexbox */
+  align-items: flex-start;
+  /* Allinea gli elementi (immagine e testo) in alto */
+  gap: 16px;
+  /* Spaziatura orizzontale tra immagine e blocco di testo */
+  margin: 20px;
+  /* Margine di esempio */
+  width: 95%;
+  height: 300px;
+  background: #022F47;
+  border-radius: 10px;
+  overflow: hidden;
+  /* overflow serve per nascondere le cose che superano i confini*/
+  flex-direction: row;
+}
+
+
+
+.image-frame-news {
+width: 30%;
+    height: 280px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.500);
+    margin: 13px;
+    border-radius: 20px;
+    align-self: center;
+}
+
+/* Stile per l’immagine */
+.image-frame-news img {
+  max-height: 280px;
+  max-width: 300px;
+  border-radius:20px;
+}
+
+
+
+
+.text-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+
+}
+
+
+.header-box-news {
+   width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    margin: 0.3%;
+
+}
+
+/* Titolo della notizia */
+.titolo_n {
+
+  font-size: 1.5rem;
+  font-weight: bold;
+
+}
+
+.data-pubblicazione {
+ margin-right: 15px;
+}
+
+.oggetto {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+/* Descrizione della notizia */
+.descrizione {
+  margin: 0% 0%;
+  font-size: 1rem;
+  /* Dimensione di esempio */
+  text-align: left;
+}
+.delete-button-div{
+color: rgb(120, 48, 35);
+    margin-top: 14%;
+    margin-left: 79%;
+    width: 168px;
+    height: 48px;
+    background-color: tomato;
+    border-color: rgb(120, 48, 35);
+    border-width: 0.9em;
+    /* text-align: center; */
+    align-content: center;
+    border-radius: 5px;
+}
+
+
+.descrizionebox{
+      border-top: 2px solid rgba(255, 255, 255, .15);
+    padding-top: 8px;
+    max-height: 200px;
+    min-width: 0;
+    padding-left: 26px;
+    max-width: 80%;
+    background: rgba(255, 255, 255, .04);
+    border-radius: 10px;
+    padding: 12px 14px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.descrizionebox .descrizione{
+  margin:0;
+  text-align:left;
+  line-height:1.55;
+  font-size:16px;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+  hyphens:auto;
+}
+
+.descrizione{
+   
+  max-height: 120px;      /* imposta l'altezza massima, puoi modificarla */
+  overflow-y: auto;       /* scroll solo verticale */
+  overflow-x: hidden;     /* nessuno scroll orizzontale */
+  margin: 12px 0 0 0;     /* esempio di margin sopra, puoi personalizzare */
+  padding-right: 8px;     /* opzionale, per non nascondere il testo sotto la scrollbar */
+}
+.descr-col::-webkit-scrollbar{ width:10px; }
+.descrizione-cox::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.25);
+  border-radius:8px;
+}
+
+.uploadButton{
+  margin-bottom: 15px;
+   margin-bottom: 15px;
+     background-color: rgb(79, 160, 95);
+    color: rgb(36, 63, 46);
+    border-color: rgb(36, 63, 46);
+    border-width: 1.8px;
+}

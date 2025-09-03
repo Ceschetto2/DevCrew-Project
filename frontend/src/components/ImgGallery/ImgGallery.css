@@ -1,0 +1,78 @@
+.gallery-container{
+    border: 2px;
+    border-color: black; /* Colore del bordo */
+    min-height: 400px;
+    display: flex;
+    padding-top: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.img-gallery{
+
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    cursor: pointer;
+
+}
+.full-img
+{
+    position: fixed; /* Posizione fissa per sovrapporre l'immagine */
+    width: auto; /* Larghezza automatica per mantenere le proporzioni */
+    height: 75%;
+
+}
+
+.trash-icon{
+position: relative;
+right: 10px;
+cursor: pointer;
+
+}
+
+
+.img-gallery-container{
+    z-index: 10;
+    height: fit-content;
+    width: fit-content;
+}
+
+.img-gallery-container:hover{
+    z-index: 20;
+}
+
+
+
+.img-gallery-container{
+    z-index: 10;
+    height: fit-content;
+    width: fit-content;
+}
+
+.img-gallery:hover {
+  transition: transform 0.3s ease-in-out 0.5s;
+  transform: scale(2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.823);
+  transition-delay: 0.5s; /* aggiungi un ritardo di 1 secondo */
+}
+
+.img-gallery:hover ~ .trash-icon {
+  transition: transform 0.5s ease-in-out 0.5s, opacity 0.2s ease-in-out 0.3s;
+  opacity: 0;
+  z-index: 0;
+  transition-delay: 0.5s;
+}
+
+.img-gallery:not(:hover) ~ .trash-icon {
+  transition: transform 0.5s ease-in-out 0.5s;
+  transition-delay: 2s; /* aggiungi un ritardo di 2 secondi prima di tornare alla forma originale */
+}
+
+.trash-icon :hover{
+    
+    filter: drop-shadow(0 0 10px rgba(52, 152, 219, 0.8))
+            drop-shadow(0 0 20px rgba(52, 152, 219, 0.6))
+            drop-shadow(0 0 30px rgba(52, 152, 219, 0.4));
+}
+

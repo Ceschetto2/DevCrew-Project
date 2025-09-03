@@ -1,0 +1,32 @@
+.lista_attivita{
+    display: flex;             /* Abilita il layout flex */
+    flex-direction: column;    /* Dispone gli elementi verticalmente */
+    justify-content: flex-start; /* Allinea in alto (è anche il default) */
+    align-items: center;       /* Centra orizzontalmente se vuoi (in alternativa: flex-start) */
+    margin: 10px;              
+    padding: 0;                /* Facoltativo, rimuove padding di default */
+    background-color:#0B0B22;
+    width: 85%;
+    border-radius: 10px;
+}
+
+.month-navigation{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
+    height: fit-content;
+    align-items: center;
+}
+
+
+.prevmesebutton{
+    background-color: rgb(21, 73, 111);
+    border-color: rgb(13, 47, 72);
+    border-width: 1.8px;
+}
+.succmesebutton{
+    background-color: rgb(21, 73, 111);
+    border-color: rgb(13, 47, 72);
+    border-width: 1.8px;
+}

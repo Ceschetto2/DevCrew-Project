@@ -1,0 +1,31 @@
+.activity {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #0B0B22;
+    width: 80%;
+    margin: 16px;
+    border-radius: 16px;
+}
+.evt-participated{
+    background-color: chartreuse;
+
+}
+
+.uploadButton{
+    margin-bottom: 15px;
+   margin-bottom: 15px;
+     background-color: rgb(79, 160, 95);
+    color: rgb(36, 63, 46);
+    border-color: rgb(36, 63, 46);
+    border-width: 1.8px;
+}
+
+.nav{
+     margin-bottom: 15px;
+   margin-bottom: 15px;
+     background-color: #1c6090;
+    color: #0b273b;
+    border-color:#0b273b ;
+    border-width: 1.8px;
+}

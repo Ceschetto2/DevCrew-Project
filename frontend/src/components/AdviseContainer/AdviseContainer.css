@@ -1,0 +1,115 @@
+/* Container principale */
+.adv-show {
+    background: #fff;
+    border-radius: 10px;
+     margin:80px;
+      padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 250px;
+    max-width: 280px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+   /*display: flex;           /* mette gli elementi in fila */
+    flex-wrap:nowrap;/* niente a capo, tutto su una riga */
+    gap: 30px;               /* spazio tra le card */
+    
+    overflow-x: auto;        /* scroll orizzontale se non ci sta tutto */
+    padding-bottom: 10px;
+    align-items: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  border: 3px solid transparent;
+  animation: slideZoom 16s ease-in-out infinite;
+    
+}
+    
+  
+  
+  /* Stile per l’immagine */
+  .immagine-adv {
+    width: 90%;
+    border-radius:8px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    margin: 5px;
+    padding:0px;
+    margin-bottom: 50px;
+  }
+  
+  
+  .immagine-adv, .titolo-adv {
+    margin: -10px; /* Elimina il margine */
+    padding: 0px; /* Elimina il padding */
+  }
+  
+  
+  
+  /* Titolo della notizia */
+  .titolo-adv {
+    padding-top: 5px;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+  
+  }
+  
+  .titolo-adv,.oggetto-adv
+  { margin: -20px; /* Elimina il margine */
+    padding: 0px; /* Elimina il padding */
+    margin-top:0px;
+  }
+
+  .oggetto-adv{
+    color: black;
+    text-align: left;
+    margin-bottom: 16px;
+    font-size: 1.0rem;
+  }
+  
+  .oggetto-adv,.descrizione-adv{
+    margin: 15px;/* Elimina il margine */
+    padding: 0px; /* Elimina il padding */
+    margin-top:0px;
+  }
+
+
+  /* Descrizione della notizia */
+  .descrizione-adv {
+    color: black;
+    margin: 0% 0%;  
+    font-size: 1rem; /* Dimensione di esempio */
+    text-align: left;
+  }
+  
+ 
+  
+
+  
+    .adv-show:hover {
+ 
+      transform: translateY(-10px) scale(1.1); /* Mantiene la card ingrandita */
+    filter:  drop-shadow(0 0 20px rgba(52, 152, 219, 0.6))
+            drop-shadow(0 0 30px rgba(52, 152, 219, 0.4));
+       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Ombra più intensa */
+  }
+
+
+
+   
+
+  .StandardNewsImage {
+    width: 90%;
+    border-radius:8px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    margin: 5px;
+    padding:0px;
+    margin-bottom: 50px;
+  }
+
+
+  .data-adv{
+    color: black;
+    
+    font-size: 1rem; /* Dimensione di esempio */
+    text-align: left;
+  }

@@ -1,0 +1,34 @@
+.user_card{
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  gap: 16px; 
+  padding-inline: 10px;
+  margin-bottom: 20px; 
+  width:90%;
+  background: #353535;
+  border-radius: 10px;
+  overflow:scroll;
+}
+
+.user_card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.user_field {
+  font-size: 0.95rem;
+  margin: 6px 0;
+
+}
+.user_field span {
+  font-weight: 600;
+
+  margin-right: 4px;
+}
+.user_actions{
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  gap:10px;
+}

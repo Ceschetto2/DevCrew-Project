@@ -1,0 +1,47 @@
+.divbuttom{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+
+
+
+
+.Aimage{
+     left:150px;
+     top:20px;
+ height: 50px;
+ cursor:pointer;
+      position: relative;
+  align-self: flex-end; 
+   width: 50px;
+    filter: drop-shadow(0 0 10px #391b71) drop-shadow(0 0 25px #390368);
+
+  /* Animazione saltellante */
+  animation: bounce 1.5s infinite ease-in-out,glitter 20s infinite;
+  z-index: 1000;
+
+  
+  
+}
+@keyframes bounce{
+
+ 0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px); /* salto più basso rispetto allo standard (-8px di default) */
+  }
+}
+
+@keyframes glitter{
+  0%, 20%, 40%, 80%, 100% {
+    filter: drop-shadow(0 0 8px #410f5b) drop-shadow(0 0 15px #6b1281);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    filter: drop-shadow(0 0 25px #785b9e) drop-shadow(0 0 50px #d19bec)
+            brightness(1.1); /* scintilla rapida e più intensa */
+  }
+}
