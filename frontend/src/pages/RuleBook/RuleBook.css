@@ -1,0 +1,26 @@
+.regolamento {
+    display: flex;             /* Abilita il layout flex */
+    flex-direction: column;    /* Dispone gli elementi verticalmente */
+    justify-content: flex-start; /* Allinea in alto (è anche il default) */
+    align-items: center;       /* Centra orizzontalmente se vuoi (in alternativa: flex-start) */
+    margin: 10px;              
+    padding: 0;                /* Facoltativo, rimuove padding di default */
+    background-color:#0B0B22;
+    width: 1200px;
+    border-radius: 10px;
+  }
+  
+  /* Titolo in alto */
+  .titolo {
+    height: 100px;
+
+  }
+  
+  .uploadButton{
+    margin-bottom: 15px;
+   margin-bottom: 15px;
+     background-color: rgb(79, 160, 95);
+    color: rgb(36, 63, 46);
+    border-color: rgb(36, 63, 46);
+    border-width: 1.8px;
+  }

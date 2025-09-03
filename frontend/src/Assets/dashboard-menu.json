@@ -1,0 +1,49 @@
+[
+    {
+        "cardIcon": "https://i.postimg.cc/k4MVT04t/1.png",
+        "cardTitle": "Eventi",
+        "cardPage": "/Events",
+        "roles": []
+    },
+    {
+        "cardIcon": "https://i.postimg.cc/V6Xsw4VW/ei.png",
+        "cardTitle": "Avvisi",
+        "cardPage": "/Announce",
+        "roles": []
+    },
+    {
+        "cardIcon": "https://i.postimg.cc/QMXJ1npH/4448984.png",
+        "cardTitle": "Gallery",
+        "cardPage": "/gallery",
+        "roles": []
+    },
+    {
+        "cardIcon": "https://i.postimg.cc/brmwVgrY/cardcontact.png",
+        "cardTitle": "Contatti",
+        "cardPage": "/contacts",
+        "roles": []
+    },
+    {
+        "cardIcon": "https://i.postimg.cc/yY5VJkSG/folderblue-92960.png",
+        "cardTitle": "Storico Eventi",
+        "cardPage": "/EventsHistory",
+        "roles": []
+    },
+    {
+        "cardIcon": "https://i.postimg.cc/L5sF0MGw/society.png",
+        "cardTitle": "Gestione Società",
+        "cardPage": "/SocietyManagement",
+        "roles": [
+            "president"
+        ]
+    },
+    {
+        "cardIcon": "https://i.postimg.cc/RC2tmVZM/persone.png",
+        "cardTitle": "Lista Utenti",
+        "cardPage": "/usersList",
+        "roles": [
+            "president",
+            "trainer"
+        ]
+    }
+]

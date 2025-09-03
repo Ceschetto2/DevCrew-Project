@@ -1,0 +1,25 @@
+.new-user-popup {
+    display: flex;
+    flex-direction: column;
+    background-color: #0B0B22;
+    align-items: center;
+    border-radius: 16px;
+    padding: 32px;
+    z-index: 20;
+}
+
+.user-input-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+
+.buttons-div{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}

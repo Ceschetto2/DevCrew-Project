@@ -1,0 +1,144 @@
+/* CARD a 4 righe fisse: header, oggetto, allegati, descrizione */
+.container-info{
+  background:#022F47;
+  width:80%;
+  
+  border-radius:25px;
+  margin-block:30px;
+  padding:16px 20px;
+  box-sizing:border-box;
+  display:grid;
+  grid-template-rows: auto auto auto auto;
+  gap:14px;
+  color:#eaf6ff;
+}
+
+/* Evita overflow orizzontali dei figli in grid */
+.container-info > * { min-width: 0; }
+
+/* HEADER: titolo sx, data dx (NO margin-left “a caso”) */
+.header-info{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  align-items:start;
+  column-gap:12px;
+}
+.titolo-info{
+  font: 800 clamp(20px,2.1vw,28px)/1.15 'Roboto',sans-serif;
+  margin:0;
+  text-align:left;
+}
+.data-pubblicazione-info{
+  font: 600 14px/1 'Roboto',sans-serif;
+  white-space:nowrap;
+  text-align:right;
+  align-self:start;
+}
+
+/* SEZIONE 2 COLONNE + linea verticale centrale */
+.center-box{
+  position:relative;
+  display:grid;
+  grid-template-columns: 1fr 1fr;   /* <-- fix: NON "1 fr" */
+  gap:18px 26px;
+  padding:10px 0;
+  border-top:2px solid rgba(255,255,255,.15);
+}
+.center-box::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  left:50%;
+  width:1px;
+  background:rgba(255,255,255,.18);
+  transform:translateX(-0.5px);
+  pointer-events:none;
+}
+.object-box{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  align-items:flex-start;
+  gap:10px 12px;
+  min-width:0;
+}
+.bandoicona{ width:40px;height:40px;object-fit:contain; }
+.objectitle{ font-weight:700; font-size:14px; opacity:.85; margin-bottom:6px; }
+.objecttext{
+  margin:0;
+  text-align:left;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+  hyphens:auto;
+}
+
+/* ALLEGATI a griglia responsiva */
+.bando-attachements{
+  padding:8px 0 6px;
+  border-top:2px solid rgba(255,255,255,.15);
+}
+.Allegatitle{ font-weight:700; font-size:14px; opacity:.85; margin-bottom:6px; text-align: left; }
+.pdfslink{
+  margin:8px 0 0;
+   padding:0; 
+   list-style:none;
+  display:block;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:8px 12px;
+  text-align:left;
+  font-size: 15px;
+}
+
+/* DESCRIZIONE: BOX con SCROLL interno e testo che NON esce */
+.descr-col{
+  border-top:2px solid rgba(255,255,255,.15);
+  padding-top:8px;
+  /* scegli una delle due righe seguenti a seconda di cosa vuoi */
+  /* altezza fissa con scrollbar: */
+  max-height: 240px;
+  overflow-y: auto;
+   min-width: 0;           /* evita overflow orizzontale */
+  padding-left: 26px;     /* aria dopo la linea centrale */
+
+  /* se preferisci una cornice visiva al box: */
+  background: rgba(255,255,255,.04);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.descrititle{ font-size: 14px; font-weight: 700; opacity: .85;
+  margin: 0 0 6px; }
+.descr-col .descritext{
+  margin:0;
+  text-align:left;
+  line-height:1.55;
+  font-size:16px;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+  hyphens:auto;
+}
+.descritext {
+  max-height: 120px;      /* imposta l'altezza massima, puoi modificarla */
+  overflow-y: auto;       /* scroll solo verticale */
+  overflow-x: hidden;     /* nessuno scroll orizzontale */
+  margin: 12px 0 0 0;     /* esempio di margin sopra, puoi personalizzare */
+  padding-right: 8px;     /* opzionale, per non nascondere il testo sotto la scrollbar */
+}
+
+/* (opzionale) stile scrollbar del box descrizione (webkit) */
+.descr-col::-webkit-scrollbar{ width:10px; }
+.descrizione-cox::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.25);
+  border-radius:8px;
+}
+
+
+.RemoveBando{
+  color: rgb(120, 48, 35);
+    margin-left: 749px;
+    width: 168px;
+    height: 48px;
+    background-color: tomato;
+    border-color: rgb(120, 48, 35);
+    border-width: 0.1em;
+}

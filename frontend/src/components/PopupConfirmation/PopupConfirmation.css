@@ -1,0 +1,29 @@
+
+
+.confirmation-popup {
+     top: 0;
+    left: 0;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+    width: 300px;
+    text-align: center;
+}
+
+
+
+.dark-text{
+font: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+margin: 5px;
+color: rgb(75, 75, 75);
+height: fit-content;
+}
+
+.confirmation-popup-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+}

@@ -1,0 +1,12 @@
+.Back{
+    position: absolute;
+    /* backdrop-filter: blur(10px); */
+    left: 63%;
+     width: 50%; 
+    border-radius: 25%;
+    top: 40%;
+    /* background: rgba(0, 0, 0, 0.5); */
+    /* height: 50%; */
+    z-index: 1000;
+    
+}

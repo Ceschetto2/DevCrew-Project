@@ -1,0 +1,100 @@
+.background-popup {
+  position: fixed;
+  backdrop-filter: blur(10px);
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); /* sfocatura visiva */
+  width: 100%;
+  height: 100%;
+
+  z-index: 1000;
+}
+
+.ModifyPopup-box {
+
+  background: #334f79;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    width: 35%;
+    height: 44%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+.ModifyPopup-inner {
+     display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: right;
+    width: 100%;
+    height: 100%;
+}
+.title {
+    font-size: 18px;
+    color: white;
+    width: 327px;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 500;
+    text-align: left;
+}
+.field-hint{
+    font-size: 15px;
+    color: rgb(211, 91, 70);
+    font-weight: 500;
+}
+
+.infox {
+    position: relative;
+    height: 20px;
+    width: 200px;
+    border-radius: 20px;
+    background-color: #6882a8;
+    border-color: rgb(21, 73, 111);
+    text-align: center;
+  }
+.CloseBottom {
+  border: none;
+    background: none;
+    margin-left: 85%;
+    display: inline-flex;
+    cursor: pointer;
+    outline: none;
+}
+
+.close_icon {
+  /*color:#ffffff;    */
+  width: 30px;
+  height: 30px;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.close_icon:hover {
+  color: #fff;
+  filter: drop-shadow(0 0 1px #fff8);
+
+  transition: filter 0.2s, color 0.2s, transform 0.2s;
+}
+
+.ConfirmBottom {
+    margin-bottom: 4%;
+    background-color: rgb(79, 160, 95);
+    color: rgb(36, 63, 46);
+    border-color: rgb(36, 63, 46);
+    border-width: 1.8px;
+    margin-left: 65%;
+}
+
+
+
+
+.useinfo{  
+    font-size: 68%;
+    margin-left: 2%;
+    text-align: left;
+
+}

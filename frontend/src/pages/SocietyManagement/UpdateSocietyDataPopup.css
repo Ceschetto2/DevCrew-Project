@@ -1,0 +1,9 @@
+.update-society-data-popup{
+    display: flex;
+    flex-direction: column;
+    background-color: #0B0B22;
+    align-items: center;
+    border-radius: 16px;
+    padding: 32px;
+    z-index: 20;
+}
