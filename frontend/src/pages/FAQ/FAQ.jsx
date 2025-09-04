@@ -24,15 +24,15 @@ export function FAQ() {
   useEffect(() => {
     const fetchFaq = async () => {
       const response = await requestApi.get("/Faq", {
-        params: { data: searchData },
+        params:  searchData,
       });
 
       setFaqList(response.data);
-      
+      console.log(response.data)
     };
     fetchFaq();
 
-  }, [searchData.text]);
+  }, [searchData.text, searchData.isOrdGrow]);
 
   return (
     <div className="faq-container">
