@@ -77,10 +77,10 @@ exports.sendNews = async (req, res) => {
         return res.status(400).json({ error: "L'oggetto della notizia non puo essere vuoto" });
     }
 
-    const img = req.files?.imgs[0] || null;
+    const imgs = req.files?.imgs || [];
     let img_url = null
-    if (img) {
-        img_url = `${req.protocol}://${req.get("host")}/files/images/${img.filename}`
+    if (imgs.length > 0) {
+        img_url = `${req.protocol}://${req.get("host")}/files/images/${imgs[0].filename}`
     }
 
 

@@ -16,7 +16,7 @@ import { SocietyManagement } from "./pages/SocietyManagement/SocietyManagement";
 import { EventsHistory } from "./pages/EventsHistory/EventsHistory";
 import { UserList } from "./pages/SocietyManagement/UsersList/UserList";
 import { Contacts } from "./pages/Contacts/Contacts";
-import { Avvisi } from "./pages/Avvisi/Avvisi";
+import { Announce } from "./pages/Announce/Announce";
 import { useContext } from "react";
 import { Layout } from "./Layout";
 
@@ -149,7 +149,7 @@ function App() {
               path="/Announce"
               element={
                 <ProtectedRoute>
-                  <Avvisi />
+                  <Announce />
                 </ProtectedRoute>
               }
             />

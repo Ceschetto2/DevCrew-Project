@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Avvisi.css";
+import "./Announce.css";
 import requestApi from "../../requestApi";
 
 import { PageTitle } from "../../components/PageTitle/PageTitle";
@@ -7,9 +7,9 @@ import campanella from "../../Assets/campanella.png";
 import { useContext } from "react";
 import { authContext } from "../../Hooks/Token/tokenState";
 import InputForm from "../../components/InputForm/InputForm";
+import { PopupConfirmation } from "../../components/PopupConfirmation/PopupConfirmation";
 
-
-export function Avvisi() {
+export function Announce() {
   const [openUpload, setOpenUpload] = useState(false);
   const [announceInfo, setAnnounceInfo] = useState({ title: "", body: "" });
   const [searchData, setSearchData] = useState({
@@ -17,6 +17,9 @@ export function Avvisi() {
     date: "",
     isOrdGrow: true,
   });
+  const [isConfirmPopupOpen, setConfirmPopupOpen] = useState(false);
+  const [deleteAnnounceId, setDeleteAnnounceId] = useState(null);
+
   const [AnnounceList, setAnnounceList] = useState([]);
   const { role } = useContext(authContext)
 
@@ -34,17 +37,20 @@ export function Avvisi() {
     fetchAvvisi();
   }, [searchData.text, searchData.isOrdGrow, searchData.date]);
 
-  const handleDelete = async (announce_id) => {
+  const handleDelete = async () => {
     try {
       await requestApi.delete("Announce/delete", {
-        params: { announce_id: announce_id },
+        params: { announce_id: deleteAnnounceId },
       });
+      alert("Rimozione Avvenuta con successo")
       setAnnounceList(
-        AnnounceList.filter((Avvisi) => Avvisi.announce_id !== announce.id)
+        AnnounceList.filter((Avvisi) => Avvisi.announce_id !== deleteAnnounceId)
       );
     } catch (error) {
       console.error("Errore nell'eliminazione dell'avviso", error);
     }
+    setDeleteAnnounceId(null);
+    setConfirmPopupOpen(false);
   };
   const handleSuccess = async () => {
     try {
@@ -61,6 +67,7 @@ export function Avvisi() {
   return (
 
     <section id="sezione_avvisi">
+      {isConfirmPopupOpen && <PopupConfirmation title={"Eliminazione Avviso"} message={"Sei sicuro di voler eliminare questo avviso?"} onConfirm={() => handleDelete()} onCancel={() =>{setDeleteAnnounceId(null); setConfirmPopupOpen(false)}} />}
       {openUpload && <InputForm title={"Carica Avviso"} newItem={announceInfo} setNewItem={setAnnounceInfo} onSuccess={handleSuccess} onClose={() => setOpenUpload(false)}></InputForm>}
       <div className="avvisi">
         <PageTitle
@@ -81,7 +88,7 @@ export function Avvisi() {
                 body={Avvisi.body}
                 createdAt={Avvisi.createdAt}
                 enableDelete={role === "president"}
-                onDelete={() => handleDelete(Avvisi.announce_id)}
+                onDelete={()=>{setDeleteAnnounceId(Avvisi.announce_id); setConfirmPopupOpen(true)}}
               />
             )
           )

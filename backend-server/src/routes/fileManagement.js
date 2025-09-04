@@ -30,7 +30,6 @@ const storage = multer.diskStorage({
 
 // --- filtri MIME separati per campo
 const fileFilter = (req, file, cb) => {
-    return cb(null, true);
   if (file.fieldname === "files") {
     if (file.mimetype === "application/pdf") return cb(null, true);
     return cb(new multer.MulterError("LIMIT_UNEXPECTED_FILE", "Solo PDF per il campo 'pdfs'"));
@@ -40,6 +39,7 @@ const fileFilter = (req, file, cb) => {
     if (file.mimetype.startsWith("image/")) return cb(null, true);
     return cb(new multer.MulterError("LIMIT_UNEXPECTED_FILE", "Solo immagini per il campo 'imgs'"));
   }
+  return cb(null, false);
   
 
 };
