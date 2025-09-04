@@ -19,11 +19,18 @@ const { FaqQuestions, sequelize } = require("../../models");
 
 exports.getFaqList = async (req, res) => {
   const  {text, date, isOrdGrow}  = req.query;
+  const grow = String(isOrdGrow).toLowerCase() === 'true';
+
   console.log("test",isOrdGrow)
   let order = null
-  order = isOrdGrow?[['createdAt', 'ASC']] : [['createdAt', 'DESC']]
+
+  if(grow){
+    order = [['createdAt', 'ASC']]
+  }else{
+    order = [['createdAt', 'DESC']]
+  }
+  console.log(isOrdGrow, order)
   
-  console.log(isOrdGrow)
   let where = {}
   if(text){
     where[Op.or] = [
