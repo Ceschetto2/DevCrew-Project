@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) =>{
                 allowNull: false,
             },
             body: {
-                type: DataTypes.STRING(255),
+                type: DataTypes.TEXT,
                 allowNull: false,
             },
             uploaded_by:{
