@@ -7,6 +7,7 @@ Il file faqControllers.js definisce i metodi per gestire le operazioni relative 
 - Restituisce i risultati delle operazioni come risposta JSON.
 */
 
+const { Op } = require("sequelize");
 const { FaqQuestions, sequelize } = require("../../models");
 
 /* 
@@ -17,14 +18,24 @@ const { FaqQuestions, sequelize } = require("../../models");
 */
 
 exports.getFaqList = async (req, res) => {
-  const { data } = req.query;
-  const results = await (!data
-    ? FaqQuestions.findAll()
-    : sequelize.query("SELECT * FROM FaqQuestions where question like :req", {
-        replacements: { req: `%${data}%` },
-        model: FaqQuestions,
-        mapToModel: true,
-      }));
+  const  {text, date, isOrdGrow}  = req.query;
+  console.log("test",isOrdGrow)
+  let order = null
+  order = isOrdGrow?[['createdAt', 'ASC']] : [['createdAt', 'DESC']]
+  
+  console.log(isOrdGrow)
+  let where = {}
+  if(text){
+    where[Op.or] = [
+      {question:{ [Op.like]: `%${text}%` }},
+      {answare: {[Op.like]: `%${text}%` }}
+    ]
+    }
+
+  
+  
+   const results = await FaqQuestions.findAll({where, order})
+    
   res.json(results);
 };
 
