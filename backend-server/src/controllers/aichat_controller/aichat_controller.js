@@ -16,9 +16,7 @@ async function ensureContext() {
   if (cacheName || smallContext !== null) return;
 
   const filePath = path.resolve(__dirname, "../../../file.txt");
-  console.log("[cwd]", process.cwd());
-  console.log("[__dirname]", __dirname);
-  console.log("[filePath]", filePath);
+  
 
   let text = "";
   if (fs.existsSync(filePath)) {
@@ -28,11 +26,11 @@ async function ensureContext() {
     console.warn("Attenzione: file.txt è vuoto.");
   }
 
-  // Stima molto grezza: ~4 caratteri per token
+  // Stima molto grezza: 4 caratteri per token
   const estimatedTokens = Math.ceil(text.length / 4);
 
   if (estimatedTokens >= 4096) {
-    // ✅ abbastanza grande → usiamo la Cache API
+    //  abbastanza grande , usiamo la Cache API
     const cache = await ai.caches.create({
       model: modelName,
       config: {
@@ -47,7 +45,7 @@ async function ensureContext() {
       config: { ttl: `${2 * 3600}s` }, // 2 ore
     });
   } else {
-    // ❌ troppo piccolo per la cache → lo spediremo inline ad ogni richiesta
+    //  troppo piccolo per la cache , lo spediremo inline ad ogni richiesta
     smallContext = text; // può essere stringa vuota, va bene
   }
 }
