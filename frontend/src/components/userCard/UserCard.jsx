@@ -14,12 +14,12 @@ export default function UserCard({ user, handleEventsPartecipation, onRemove, us
 
             {(userManagment || eventManagment) ?
             <div className="user_actions">
-            {userManagment ? 
+            {eventManagment ? 
                 <button className="infopartebutton"onClick={() => handleEventsPartecipation(user)}>
                     Eventi A Cui Partecipa
                 </button>:null}
 
-                {eventManagment ? <button className="RemoveUbutton"onClick={() => onRemove(user)} >Rimuovi</button> : null}
+                {userManagment ? <button className="RemoveUbutton"onClick={() => onRemove(user)} >Rimuovi</button> : null}
             </div> : null}
         </div>
     );
