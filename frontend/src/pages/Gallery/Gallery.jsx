@@ -42,6 +42,7 @@ export function Gallery() {
   const defaultImg = { title: "", body: "", imgs: [] }
   const [newImg, setNewImg] = useState(defaultImg)
   const [isConfirmPopupOpen, setConfirmPopupOpen] = useState(false);
+  const [imgDeleteId, setImgDeleteId] = useState(null); 
 
   const [isInputPopupOpen, setInputPopupOpen] = useState(false);
 
@@ -91,10 +92,11 @@ export function Gallery() {
     }
   };
 
-  const deleteImage = async (img_id) => {
+  const deleteImage = async () => {
     try {
-      await requestApi.delete("/GalleryImages", { params: { img_id: img_id } })
-      setImgArray(prev => prev.filter(img => img.img_id !== img_id))
+      console.log(imgDeleteId)
+      await requestApi.delete("/GalleryImages", { params: { img_id: imgDeleteId } })
+      setImgArray(prev => prev.filter(img => img.img_id !== imgDeleteId))
       alert("Rimozione avvenuta con successo")
     } catch (error) {
       alert("Impossibile rimuovere l'immagine")
@@ -128,9 +130,9 @@ export function Gallery() {
               <button className="caruselb" onClick={() => setImgShow(1)}><img className="carusel" src={carusel} alt="carosello" /></button>
             </div>
             {img_show === 1 ? (
-              <ImgSlideShow img_array={img_array} enableDelete={role === 'president'} onDelete={() => setConfirmPopupOpen(true)} />
+              <ImgSlideShow img_array={img_array} enableDelete={role === 'president'} onDelete={() => setConfirmPopupOpen(true)} setDeleteImageId = {setImgDeleteId}/>
             ) : (
-              <ImgGallery img_array={img_array} enableDelete={role === 'president'} onDelete={() => setConfirmPopupOpen(true)} />
+              <ImgGallery img_array={img_array} enableDelete={role === 'president'} onDelete={() => {setConfirmPopupOpen(true)}} setDeleteImageId = {setImgDeleteId} />
             )}
           </div>
         )}

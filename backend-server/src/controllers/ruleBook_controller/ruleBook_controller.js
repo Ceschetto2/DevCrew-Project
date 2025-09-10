@@ -1,6 +1,7 @@
 const express = require('express');
 const { InternalRegulations, Pdfs, sequelize } = require("../../models");
 const { Op } = require('sequelize');
+const fs = require('fs');
 
 exports.getRules = async (req, res) => {
 
@@ -33,7 +34,7 @@ exports.getRules = async (req, res) => {
   order = String(isOrdGrow).toLowerCase()
   if (order) {
     order = [['title', order === 'true' ? 'ASC' : 'DESC']]
-  }else order = [['createdAt', 'ASC']]
+  } else order = [['createdAt', 'ASC']]
 
   try {
     const response = await InternalRegulations.findAll({
@@ -115,11 +116,20 @@ exports.sendRule = async (req, res) => {
 exports.deleteRule = async (req, res) => {
   try {
     const rule_id = req.query.rule_id;
-
+    await Pdfs.findAll({ where: { rule_id: rule_id } }).then((pdfs) => {
+      pdfs.forEach((pdf) => {
+        const file_to_delete = pdf.file_path.replace("files/pdfs", "uploads/pdfs")
+        fs.unlink(file_to_delete, (err) => {
+          if (err) {
+            console.error("Errore eliminazione file:", err);
+          }
+        })
+      });
+    })
     // Elimina prima i PDF associati
     await Pdfs.destroy({ where: { rule_id: rule_id } });
 
-    // Poi elimina il bando
+    // Poi elimina il regolamento
     const deleted = await InternalRegulations.destroy({ where: { rule_id } });
 
     if (deleted) {

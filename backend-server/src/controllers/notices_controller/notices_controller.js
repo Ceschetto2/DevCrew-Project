@@ -1,11 +1,12 @@
 const { Notices, Pdfs, sequelize } = require("../../models");
 const { Op } = require("sequelize");
+const fs = require("fs");
 
 exports.getNotices = async (req, res) => {
 
   const { data, date, isOrdGrow, n_obj } = req.query;
   let limit = null;
-  if(n_obj){
+  if (n_obj) {
     limit = parseInt(n_obj)
   }
   let where = {}
@@ -15,7 +16,7 @@ exports.getNotices = async (req, res) => {
         { title: { [Op.like]: `%${data}%` } },
         { body: { [Op.like]: `%${data}%` } },
         { object: { [Op.like]: `%${data}%` } },
-       
+
       ]
     }
   }
@@ -28,7 +29,7 @@ exports.getNotices = async (req, res) => {
   order = String(isOrdGrow).toLowerCase()
   if (order) {
     order = [['title', order === 'true' ? 'ASC' : 'DESC']]
-  }else order = [['createdAt', 'ASC']]
+  } else order = [['createdAt', 'ASC']]
 
   const results = await (
     Notices.findAll({
@@ -53,6 +54,16 @@ exports.deleteNotices = async (req, res) => {
     const { notice_id } = req.query;
 
     // Elimina prima i PDF associati
+    await Pdfs.findAll({ where: { notice_id: notice_id } }).then((pdfs) => {
+      pdfs.forEach((pdf) =>{
+        const file_to_delete = pdf.file_path.replace("files/pdfs", "uploads/pdfs")
+        fs.unlink(file_to_delete, (err) => {
+          if (err) {
+            console.error("Errore eliminazione file:", err);
+          }
+        })
+      });
+    })
     await Pdfs.destroy({ where: { notice_id: notice_id } });
 
     // Poi elimina il bando
@@ -117,7 +128,7 @@ exports.sendNotices = async (req, res) => {
       notice: notice
     });
 
-    
+
   } catch (error) {
     await t.rollback();
     console.error(error);

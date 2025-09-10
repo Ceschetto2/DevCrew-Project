@@ -15,7 +15,7 @@ Il componente ImgSlideShow rappresenta uno slideshow di immagini con funzionalit
 - Lo stile del componente è gestito tramite il file CSS "ImgSlideShow.css".
 */
 
-export function ImgSlideShow({ img_array, enableDelete = false, onDelete = null }) {
+export function ImgSlideShow({ img_array, enableDelete = false, onDelete = null, setDeleteImageId = null }) {
   const [currentImgIndex, setImageIndex] = useState(0);
   const [fullScreenStatus, setFullScreenStatus] = useState(false);
 
@@ -42,17 +42,17 @@ export function ImgSlideShow({ img_array, enableDelete = false, onDelete = null 
           alt="errore"
         />
 
-          {fullScreenStatus ? (
-            renderFullScreenImage()
-          ) : (
-            <img
+        {fullScreenStatus ? (
+          renderFullScreenImage()
+        ) : (
+          <img
             onClick={() => setFullScreenStatus(!fullScreenStatus)}
-              className="img"
-              src={img_array[currentImgIndex].img_url}
-              alt="errore"
-            />
-          )}
-    
+            className="img"
+            src={img_array[currentImgIndex].img_url}
+            alt="errore"
+          />
+        )}
+
 
         <img
           className="r-img"
@@ -70,8 +70,10 @@ export function ImgSlideShow({ img_array, enableDelete = false, onDelete = null 
 
       {enableDelete && <FontAwesomeIcon className="trash-icon-slideshow" onClick={(e) => {
         e.stopPropagation();
+        setDeleteImageId(img_array[currentImgIndex].img_id)
         setImageIndex(getNextIndex());
-        onDelete(img_array[currentImgIndex].img_id)
+        onDelete()
+
       }} icon={faTrashAlt} />}
 
     </>
@@ -82,7 +84,7 @@ export function ImgSlideShow({ img_array, enableDelete = false, onDelete = null 
   function renderFullScreenImage() {
     return (
       <div className="test" onClick={() => setFullScreenStatus(!fullScreenStatus)}>
-        <img className="full-img" src={img_array[currentImgIndex].img_url}  />
+        <img className="full-img" src={img_array[currentImgIndex].img_url} />
       </div>
     );
   }

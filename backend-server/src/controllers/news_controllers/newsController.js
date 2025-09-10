@@ -9,7 +9,7 @@ Il file notizieController.js definisce i metodi per gestire le operazioni relati
 
 const { Op } = require("sequelize");
 const { News, sequelize } = require("../../models")
-
+const fs = require("fs");
 /* 
   Recupera le notizie dal database.
   - Se non viene fornito alcun parametro di query, restituisce tutte le notizie.
@@ -104,6 +104,13 @@ exports.deleteNews = async (req, res) => {
         return res.status(404).json({ error: "L'id della notizia non puo essere vuoto" });
     }
     try {
+        const news = await News.findAll({ where: { news_id: news_id } })
+        if (news) {
+            const img_to_delete = news[0].img_url.replace(/^.*?\/files\//, "uploads/")
+            fs.unlinkSync(img_to_delete)
+
+        }else return res.status(404).json({ error: "Notizia non trovata" });
+        
         await News.destroy({ where: { news_id: news_id } })
     }
     catch (error) {

@@ -14,7 +14,7 @@ Il componente ImgGallery rappresenta una galleria di immagini con funzionalità 
 - Lo stile del componente è gestito tramite il file CSS "ImgGallery.css".
 */
 
-export function ImgGallery({ img_array, enableDelete = false, onDelete }) {
+export function ImgGallery({ img_array, enableDelete = false, onDelete = ()=>{} , setDeleteImageId = ()=>{}}) {
   const [fullScreenImage, setFullScreenImage] = useState(null);
   return (
     <>
@@ -26,7 +26,8 @@ export function ImgGallery({ img_array, enableDelete = false, onDelete }) {
             <img key={index} className="img-gallery" onClick={() => setFullScreenImage(img_source.img_url)} src={img_source.img_url} />
             {enableDelete &&<FontAwesomeIcon className="trash-icon" onClick={(e) => {
               e.stopPropagation()
-              onDelete(img_source.img_id)
+              setDeleteImageId(img_source.img_id)
+              onDelete()
             }} icon={faTrashAlt} />}
           </div>
         ))}

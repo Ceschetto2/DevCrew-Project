@@ -9,6 +9,7 @@ Il file galleryController.js definisce i metodi per gestire le operazioni relati
 
 const { Op } = require("sequelize");
 const { GalleryImages } = require("../../models");
+const fs = require("fs");
 
 /*
   Recupera le immagini dalla galleria.
@@ -41,8 +42,8 @@ exports.getImages = async (req, res) => {
   order = String(isOrdGrow).toLowerCase()
   if (order) {
     order = [['title', order === 'true' ? 'ASC' : 'DESC']]
-  }else order = [['createdAt', 'ASC']]
-  
+  } else order = [['createdAt', 'ASC']]
+
   if (date) {
     const dayStart = new Date(date + 'Z'); dayStart.setHours(0, 0, 0, 0);
     const dayEnd = new Date(date + 'Z'); dayEnd.setHours(23, 59, 59, 999);
@@ -53,7 +54,7 @@ exports.getImages = async (req, res) => {
     const listOfImages = await GalleryImages.findAll({ where, order, limit });
 
     res.json(listOfImages);
-  }catch (error) {
+  } catch (error) {
     res.status(500).json({ error: "Errore nel recupero delle immagini" });
   }
 
@@ -102,13 +103,28 @@ exports.sendImages = async (req, res) => {
 
 
 exports.deleteImage = async (req, res) => {
+  console.log(req.query)
   const img_id = req.query.img_id
   if (!img_id) {
     return res.status(404).json({ error: "L'id dell'immagine non puo essere vuoto" });
   }
+
+
   try {
-    await GalleryImages.destroy({ where: { img_id: img_id } })
+    const imgs = await GalleryImages.findAll({ where: { img_id: img_id } })
+    if (imgs.lenght === 0) {
+      return res.status(404).json({ error: "Immagine non trovata" });
+    }
+    const img = imgs[0]
+    const img_to_delete = img.img_url.replace(/^.*?\/files\//, "uploads/")
+
+
+    await img.destroy()
+
+    fs.unlinkSync(img_to_delete)
+
     return res.json({ msg: "Rimozione avvenuta con successo" })
+
   }
   catch (error) {
     console.error("Error deleting image:", error);
