@@ -204,9 +204,7 @@ exports.updateUser = async (req, res) => {
 }
 
 
-exports.getInfoUser = async (req, res) => {
 
-}
 
 exports.updatePassword = async (req, res) => {
   if (!req.body.newPassword) {
